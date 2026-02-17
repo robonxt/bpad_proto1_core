@@ -1,0 +1,22 @@
+# Release artifacts
+release/*.zip
+zip.log
+
+# ESP32 core source (downloaded by setup script, too large for git)
+esp32/cores/
+esp32/libraries/
+esp32/tools/
+esp32/docs/
+esp32/idf_component.yml
+esp32/Kconfig.projbuild
+esp32/CMakeLists.txt
+esp32/package.json
+esp32/programmers.txt
+
+# Python
+__pycache__/
+*.pyc
+
+# OS
+.DS_Store
+Thumbs.db

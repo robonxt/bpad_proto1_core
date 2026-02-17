@@ -1,0 +1,218 @@
+# Official Espressif options
+menu.UploadSpeed=Upload Speed
+menu.USBMode=USB Mode
+menu.CDCOnBoot=USB CDC On Boot
+menu.MSCOnBoot=USB Firmware MSC On Boot
+menu.DFUOnBoot=USB DFU On Boot
+menu.UploadMode=Upload Mode
+menu.CPUFreq=CPU Frequency
+menu.FlashFreq=Flash Frequency
+menu.FlashMode=Flash Mode
+menu.FlashSize=Flash Size
+menu.PartitionScheme=Partition Scheme
+menu.DebugLevel=Core Debug Level
+menu.PSRAM=PSRAM
+menu.LoopCore=Arduino Runs On
+menu.EventsCore=Events Run On
+menu.MemoryType=Memory Type
+menu.EraseFlash=Erase All Flash Before Sketch Upload
+menu.JTAGAdapter=JTAG Adapter
+
+##############################################################
+# bpad proto1
+# ESP32-S3 / 4MB Flash / OPI PSRAM / 240x240 Touchscreen
+# Based on ESP32 Arduino Core v2.0.17
+##############################################################
+
+bpad_proto1.name=bpad proto1
+
+bpad_proto1.bootloader.tool=esptool_py
+bpad_proto1.bootloader.tool.default=esptool_py
+
+bpad_proto1.upload.tool=esptool_py
+bpad_proto1.upload.tool.default=esptool_py
+bpad_proto1.upload.tool.network=esp_ota
+
+bpad_proto1.upload.maximum_size=3145728
+bpad_proto1.upload.maximum_data_size=327680
+bpad_proto1.upload.flags=
+bpad_proto1.upload.extra_flags=
+bpad_proto1.upload.use_1200bps_touch=false
+bpad_proto1.upload.wait_for_upload_port=false
+
+bpad_proto1.serial.disableDTR=false
+bpad_proto1.serial.disableRTS=false
+
+bpad_proto1.build.tarch=xtensa
+bpad_proto1.build.bootloader_addr=0x0
+bpad_proto1.build.target=esp32s3
+bpad_proto1.build.mcu=esp32s3
+bpad_proto1.build.core=esp32
+bpad_proto1.build.variant=bpad_proto1
+bpad_proto1.build.board=BPAD_PROTO1
+
+bpad_proto1.build.usb_mode=1
+## CDC On Boot: Enabled by default
+bpad_proto1.build.cdc_on_boot=1
+bpad_proto1.build.msc_on_boot=0
+bpad_proto1.build.dfu_on_boot=0
+bpad_proto1.build.f_cpu=240000000L
+
+## 4MB Flash (proto1 hardware)
+bpad_proto1.build.flash_size=4MB
+bpad_proto1.build.flash_freq=80m
+bpad_proto1.build.flash_mode=dio
+bpad_proto1.build.boot=qio
+bpad_proto1.build.boot_freq=80m
+
+## HUGE APP partition: 3MB app / 1MB SPIFFS (no OTA)
+bpad_proto1.build.partitions=huge_app
+
+bpad_proto1.build.defines=
+bpad_proto1.build.loop_core=
+bpad_proto1.build.event_core=
+
+## OPI PSRAM (proto1 hardware)
+bpad_proto1.build.psram_type=opi
+bpad_proto1.build.memory_type={build.boot}_{build.psram_type}
+
+## JTAG Adapter
+bpad_proto1.menu.JTAGAdapter.builtin=Integrated USB JTAG
+bpad_proto1.menu.JTAGAdapter.builtin.build.openocdscript=esp32s3-builtin.cfg
+bpad_proto1.menu.JTAGAdapter.builtin.build.copy_jtag_files=1
+bpad_proto1.menu.JTAGAdapter.default=Disabled
+bpad_proto1.menu.JTAGAdapter.default.build.openocdscript=esp32s3-builtin.cfg
+bpad_proto1.menu.JTAGAdapter.default.build.copy_jtag_files=0
+
+## PSRAM Menu
+bpad_proto1.menu.PSRAM.opi=OPI PSRAM (Enabled)
+bpad_proto1.menu.PSRAM.opi.build.defines=-DBOARD_HAS_PSRAM
+bpad_proto1.menu.PSRAM.opi.build.psram_type=opi
+bpad_proto1.menu.PSRAM.disabled=Disabled
+bpad_proto1.menu.PSRAM.disabled.build.defines=
+bpad_proto1.menu.PSRAM.disabled.build.psram_type=qspi
+
+## Flash Mode
+bpad_proto1.menu.FlashMode.qio=QIO 80MHz
+bpad_proto1.menu.FlashMode.qio.build.flash_mode=dio
+bpad_proto1.menu.FlashMode.qio.build.boot=qio
+bpad_proto1.menu.FlashMode.qio.build.boot_freq=80m
+bpad_proto1.menu.FlashMode.qio.build.flash_freq=80m
+bpad_proto1.menu.FlashMode.dio=DIO 80MHz
+bpad_proto1.menu.FlashMode.dio.build.flash_mode=dio
+bpad_proto1.menu.FlashMode.dio.build.boot=dio
+bpad_proto1.menu.FlashMode.dio.build.boot_freq=80m
+bpad_proto1.menu.FlashMode.dio.build.flash_freq=80m
+
+## Flash Size (4MB only for proto1)
+bpad_proto1.menu.FlashSize.4M=4MB (32Mb)
+bpad_proto1.menu.FlashSize.4M.build.flash_size=4MB
+
+## Partition Scheme
+bpad_proto1.menu.PartitionScheme.huge_app=Huge APP (3MB No OTA/1MB SPIFFS)
+bpad_proto1.menu.PartitionScheme.huge_app.build.partitions=huge_app
+bpad_proto1.menu.PartitionScheme.huge_app.upload.maximum_size=3145728
+bpad_proto1.menu.PartitionScheme.default=Default 4MB with spiffs (1.2MB APP/1.5MB SPIFFS)
+bpad_proto1.menu.PartitionScheme.default.build.partitions=default
+bpad_proto1.menu.PartitionScheme.default.upload.maximum_size=1310720
+bpad_proto1.menu.PartitionScheme.no_ota=No OTA (2MB APP/2MB SPIFFS)
+bpad_proto1.menu.PartitionScheme.no_ota.build.partitions=no_ota
+bpad_proto1.menu.PartitionScheme.no_ota.upload.maximum_size=2097152
+bpad_proto1.menu.PartitionScheme.min_spiffs=Minimal SPIFFS (1.9MB APP with OTA/190KB SPIFFS)
+bpad_proto1.menu.PartitionScheme.min_spiffs.build.partitions=min_spiffs
+bpad_proto1.menu.PartitionScheme.min_spiffs.upload.maximum_size=1966080
+
+## Loop/Events Core
+bpad_proto1.menu.LoopCore.1=Core 1
+bpad_proto1.menu.LoopCore.1.build.loop_core=-DARDUINO_RUNNING_CORE=1
+bpad_proto1.menu.LoopCore.0=Core 0
+bpad_proto1.menu.LoopCore.0.build.loop_core=-DARDUINO_RUNNING_CORE=0
+
+bpad_proto1.menu.EventsCore.1=Core 1
+bpad_proto1.menu.EventsCore.1.build.event_core=-DARDUINO_EVENT_RUNNING_CORE=1
+bpad_proto1.menu.EventsCore.0=Core 0
+bpad_proto1.menu.EventsCore.0.build.event_core=-DARDUINO_EVENT_RUNNING_CORE=0
+
+## USB Mode
+bpad_proto1.menu.USBMode.hwcdc=Hardware CDC and JTAG
+bpad_proto1.menu.USBMode.hwcdc.build.usb_mode=1
+bpad_proto1.menu.USBMode.default=USB-OTG (TinyUSB)
+bpad_proto1.menu.USBMode.default.build.usb_mode=0
+
+## CDC On Boot
+bpad_proto1.menu.CDCOnBoot.cdc=Enabled
+bpad_proto1.menu.CDCOnBoot.cdc.build.cdc_on_boot=1
+bpad_proto1.menu.CDCOnBoot.default=Disabled
+bpad_proto1.menu.CDCOnBoot.default.build.cdc_on_boot=0
+
+## MSC On Boot
+bpad_proto1.menu.MSCOnBoot.default=Disabled
+bpad_proto1.menu.MSCOnBoot.default.build.msc_on_boot=0
+bpad_proto1.menu.MSCOnBoot.msc=Enabled (Requires USB-OTG Mode)
+bpad_proto1.menu.MSCOnBoot.msc.build.msc_on_boot=1
+
+## DFU On Boot
+bpad_proto1.menu.DFUOnBoot.default=Disabled
+bpad_proto1.menu.DFUOnBoot.default.build.dfu_on_boot=0
+bpad_proto1.menu.DFUOnBoot.dfu=Enabled (Requires USB-OTG Mode)
+bpad_proto1.menu.DFUOnBoot.dfu.build.dfu_on_boot=1
+
+## Upload Mode
+bpad_proto1.menu.UploadMode.default=UART0 / Hardware CDC
+bpad_proto1.menu.UploadMode.default.upload.use_1200bps_touch=false
+bpad_proto1.menu.UploadMode.default.upload.wait_for_upload_port=false
+bpad_proto1.menu.UploadMode.cdc=USB-OTG CDC (TinyUSB)
+bpad_proto1.menu.UploadMode.cdc.upload.use_1200bps_touch=true
+bpad_proto1.menu.UploadMode.cdc.upload.wait_for_upload_port=true
+
+## CPU Frequency
+bpad_proto1.menu.CPUFreq.240=240MHz (WiFi)
+bpad_proto1.menu.CPUFreq.240.build.f_cpu=240000000L
+bpad_proto1.menu.CPUFreq.160=160MHz (WiFi)
+bpad_proto1.menu.CPUFreq.160.build.f_cpu=160000000L
+bpad_proto1.menu.CPUFreq.80=80MHz (WiFi)
+bpad_proto1.menu.CPUFreq.80.build.f_cpu=80000000L
+bpad_proto1.menu.CPUFreq.40=40MHz
+bpad_proto1.menu.CPUFreq.40.build.f_cpu=40000000L
+bpad_proto1.menu.CPUFreq.20=20MHz
+bpad_proto1.menu.CPUFreq.20.build.f_cpu=20000000L
+bpad_proto1.menu.CPUFreq.10=10MHz
+bpad_proto1.menu.CPUFreq.10.build.f_cpu=10000000L
+
+## Upload Speed
+bpad_proto1.menu.UploadSpeed.921600=921600
+bpad_proto1.menu.UploadSpeed.921600.upload.speed=921600
+bpad_proto1.menu.UploadSpeed.115200=115200
+bpad_proto1.menu.UploadSpeed.115200.upload.speed=115200
+bpad_proto1.menu.UploadSpeed.256000.windows=256000
+bpad_proto1.menu.UploadSpeed.256000.upload.speed=256000
+bpad_proto1.menu.UploadSpeed.230400.windows.upload.speed=256000
+bpad_proto1.menu.UploadSpeed.230400=230400
+bpad_proto1.menu.UploadSpeed.230400.upload.speed=230400
+bpad_proto1.menu.UploadSpeed.460800.linux=460800
+bpad_proto1.menu.UploadSpeed.460800.macosx=460800
+bpad_proto1.menu.UploadSpeed.460800.upload.speed=460800
+bpad_proto1.menu.UploadSpeed.512000.windows=512000
+bpad_proto1.menu.UploadSpeed.512000.upload.speed=512000
+
+## Debug Level
+bpad_proto1.menu.DebugLevel.none=None
+bpad_proto1.menu.DebugLevel.none.build.code_debug=0
+bpad_proto1.menu.DebugLevel.error=Error
+bpad_proto1.menu.DebugLevel.error.build.code_debug=1
+bpad_proto1.menu.DebugLevel.warn=Warn
+bpad_proto1.menu.DebugLevel.warn.build.code_debug=2
+bpad_proto1.menu.DebugLevel.info=Info
+bpad_proto1.menu.DebugLevel.info.build.code_debug=3
+bpad_proto1.menu.DebugLevel.debug=Debug
+bpad_proto1.menu.DebugLevel.debug.build.code_debug=4
+bpad_proto1.menu.DebugLevel.verbose=Verbose
+bpad_proto1.menu.DebugLevel.verbose.build.code_debug=5
+
+## Erase Flash
+bpad_proto1.menu.EraseFlash.none=Disabled
+bpad_proto1.menu.EraseFlash.none.upload.erase_cmd=
+bpad_proto1.menu.EraseFlash.all=Enabled
+bpad_proto1.menu.EraseFlash.all.upload.erase_cmd=-e
+
+##############################################################

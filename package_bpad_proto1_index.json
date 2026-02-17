@@ -1,0 +1,47 @@
+{
+  "packages": [
+    {
+      "name": "bpad_proto1",
+      "maintainer": "robonxt",
+      "websiteURL": "https://github.com/robonxt/bpad_proto1_core",
+      "email": "",
+      "help": {
+        "online": "https://github.com/robonxt/bpad_proto1_core/discussions"
+      },
+      "platforms": [
+        {
+          "name": "bpad proto1 (ESP32 v2.0.17)",
+          "architecture": "esp32",
+          "version": "0.1.0",
+          "category": "Contributed",
+          "help": {
+            "online": "https://github.com/robonxt/bpad_proto1_core/discussions"
+          },
+          "url": "https://github.com/robonxt/bpad_proto1_core/releases/download/v0.1.0/bpad_proto1-v0.1.0-PLACEHOLDER.zip",
+          "archiveFileName": "bpad_proto1-v0.1.0-PLACEHOLDER.zip",
+          "checksum": "SHA-256:PLACEHOLDER",
+          "size": "0",
+          "boards": [{ "name": "bpad proto1" }],
+          "toolsDependencies": [
+            {
+              "packager": "esp32",
+              "name": "xtensa-esp32s3-elf-gcc",
+              "version": "esp-2021r2-patch5-8.4.0"
+            },
+            {
+              "packager": "esp32",
+              "name": "esptool_py",
+              "version": "4.5.1"
+            },
+            {
+              "packager": "esp32",
+              "name": "xtensa-esp-elf-gdb",
+              "version": "11.2_20220823"
+            }
+          ]
+        }
+      ],
+      "tools": []
+    }
+  ]
+}
