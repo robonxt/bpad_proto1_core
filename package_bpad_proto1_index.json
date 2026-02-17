@@ -17,11 +17,15 @@
           "help": {
             "online": "https://github.com/robonxt/bpad_proto1_core/discussions"
           },
-          "url": "https://github.com/robonxt/bpad_proto1_core/releases/download/v0.1.0/bpad_proto1-v0.1.0-PLACEHOLDER.zip",
-          "archiveFileName": "bpad_proto1-v0.1.0-PLACEHOLDER.zip",
-          "checksum": "SHA-256:PLACEHOLDER",
-          "size": "0",
-          "boards": [{ "name": "bpad proto1" }],
+          "url": "https://github.com/robonxt/bpad_proto1_core/releases/download/v0.1.0/bpad_proto1-v0.1.0-c90af4f.zip",
+          "archiveFileName": "bpad_proto1-v0.1.0-c90af4f.zip",
+          "checksum": "SHA-256:1fd6c7a5909baa4a385a3933e0a84bb8b993ca836ef697f572a242e77fe4cf0b",
+          "size": "253643805",
+          "boards": [
+            {
+              "name": "bpad proto1"
+            }
+          ],
           "toolsDependencies": [
             {
               "packager": "esp32",
