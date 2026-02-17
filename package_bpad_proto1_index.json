@@ -26,7 +26,23 @@
               "name": "bpad proto1"
             }
           ],
-          "toolsDependencies": []
+          "toolsDependencies": [
+            {
+              "packager": "esp32",
+              "name": "xtensa-esp32s3-elf-gcc",
+              "version": "esp-2021r2-patch5-8.4.0"
+            },
+            {
+              "packager": "esp32",
+              "name": "esptool_py",
+              "version": "4.5.1"
+            },
+            {
+              "packager": "esp32",
+              "name": "xtensa-esp-elf-gdb",
+              "version": "11.2_20220823"
+            }
+          ]
         }
       ],
       "tools": []
