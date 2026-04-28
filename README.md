@@ -1,3 +1,5 @@
+> SUCCEEDED BY [ROBONXT/BPAD_CORE](HTTPS://GITHUB.COM/ROBONXT/BPAD_CORE)
+
 # bpad proto1 core
 
 Arduino core for the **bpad proto1 board** (ESP32-S3, 4MB flash, OPI PSRAM, 240×240 touchscreen).
